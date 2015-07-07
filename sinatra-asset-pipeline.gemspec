@@ -18,7 +18,6 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'sass', '~> 3.3'
   gem.add_dependency 'coffee-script', '~> 2.3'
   gem.add_dependency 'sprockets', '~> 3.0'
-  gem.add_dependency 'sprockets-sass', '~> 1.3'
   gem.add_dependency 'sprockets-helpers', '~> 1.2'
   gem.add_development_dependency 'rspec', '~> 3.1'
   gem.add_development_dependency 'rack-test', '~> 0.6'
