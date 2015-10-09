@@ -15,10 +15,10 @@ module Sinatra
       app.set_default :assets_digest, true
       app.set_default :assets_debug, false
       app.set_default :path_prefix, nil
-      app.set_default :root, File.dirname(__FILE__)
 
       app.set :static, :true
       app.set :static_cache_control, [:public, :max_age => 60 * 60 * 24 * 365]
+      app.set :root, File.dirname(__FILE__) if app.root.nil?
 
       app.configure do
         app.assets_prefix.each do |prefix|
