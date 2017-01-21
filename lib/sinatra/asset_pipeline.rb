@@ -8,6 +8,7 @@ module Sinatra
       app.set_default :assets_precompile, %w(app.js app.css *.png *.jpg *.svg *.eot *.ttf *.woff *.woff2)
       app.set_default :assets_prefix, %w(assets vendor/assets)
       app.set_default :assets_path, -> { File.join(public_folder, "assets") }
+      app.set_default :assets_manifest, "manifest.json"
       app.set_default :assets_protocol, :http
       app.set_default :assets_css_compressor, nil
       app.set_default :assets_js_compressor, nil
@@ -36,7 +37,7 @@ module Sinatra
 
       app.configure :staging, :production do
         Sprockets::Helpers.configure do |config|
-          config.manifest = Sprockets::Manifest.new(app.sprockets, app.assets_path)
+          config.manifest = Sprockets::Manifest.new(app.sprockets, app.assets_manifest)
           config.prefix = app.path_prefix unless app.path_prefix.nil?
         end
       end
